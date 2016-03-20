@@ -54,7 +54,10 @@ group :development, :test do
   gem 'capybara'
   gem 'jasmine-rails'
   gem 'rubocop', '~> 0.38.0', require: false
-
+  gem 'minitest-spec-rails', '~> 5.2.0'
+  gem 'minitest-reporters', '>= 0.5.0'
+  gem 'minitest-rails', '~> 2.1.1'
+  gem 'mocha', '~> 1.1'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
