@@ -44,13 +44,15 @@ gem 'imdb_consume', path: 'vendor/gems/imdb_consume'
 
 group :development do
   gem 'pry-rails'
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'
 end
 
 group :development, :test do
 
   gem 'shoulda-matchers', '~> 3.1'
   gem 'factory_girl_rails'
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
   gem 'capybara'
   gem 'jasmine-rails'
   gem 'rubocop', '~> 0.38.0', require: false
@@ -58,12 +60,12 @@ group :development, :test do
   gem 'minitest-reporters', '>= 0.5.0'
   gem 'minitest-rails', '~> 2.1.1'
   gem 'mocha', '~> 1.1'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
 
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
