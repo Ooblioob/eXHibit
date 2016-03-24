@@ -9,8 +9,9 @@ class ImdbConsumeTest < Minitest::Test
     it 'should parse the json in the body when we get a response' do
       # Arrange
       expected_result = { foo: 'bar' }.stringify_keys
-      search_response = Typhoeus::Response.new(code: 200, body: expected_result.to_json)
-      Typhoeus.stubs(:get).returns(search_response)
+      response = Typhoeus::Response.new(code: 200,
+                                        body: expected_result.to_json)
+      Typhoeus.stubs(:get).returns(response)
 
       # Act
       result = ImdbConsume::Stream.search('something')
@@ -19,15 +20,15 @@ class ImdbConsumeTest < Minitest::Test
       assert_equal expected_result, result
     end
 
-    it 'should return nil if there is no search result' do
+    it 'should return an empty array if there is no search result' do
       # Arrange
-      Typhoeus.stubs(:get).returns(nil)
+      Typhoeus.stubs(:get).returns([])
 
       # Act
       result = ImdbConsume::Stream.search('something')
 
       # Assert
-      assert_nil result
+      assert_equal [], result
     end
 
     it 'should pass the correct parameters to the request' do
